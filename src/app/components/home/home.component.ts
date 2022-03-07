@@ -20,9 +20,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
- // this.initMat('10','5')
-
   }
+
   chooseSeed(seed:string,size:number)
   {
    
@@ -53,7 +52,6 @@ export class HomeComponent implements OnInit {
       {
         ranRow= Math.floor((Math.random() * 10));
         ranCol=Math.floor((Math.random() * 10));
-      //  console.log('ranRow  '+ranRow+'   ranCol  '+ranCol)
 
         let check=0
 
@@ -70,11 +68,9 @@ export class HomeComponent implements OnInit {
 
              //if the cell is live random again
             else{
-            //  console.log('duplice--------')
               ranRow= Math.floor((Math.random() * 10));
               ranCol=Math.floor((Math.random() * 10)); 
 
-             // console.log('ranRow  '+ranRow+'   ranCol  '+ranCol)
             }               
         }
         num++
@@ -184,9 +180,7 @@ export class HomeComponent implements OnInit {
 
     for(let row=0; row<this.mat.length; row++)
       for(let col=0;col<this.mat.length; col++)
-      {
-      //  console.log('row='+row +' col='+col);
-        
+      {      
         let count;
 
       // check how many living cells are around it
