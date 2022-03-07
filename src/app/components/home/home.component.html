@@ -1,0 +1,58 @@
+<div  class="body-container">
+
+<header>
+    <h1>Game Of Life</h1>
+</header>
+   
+
+<div class="border">
+    <div class="row">
+        <div class="col col-1">
+            <label >Size:</label>
+            <select #size>
+                <!-- <option value="6"> 6*6 </option> -->
+                <option value="10">  10*10 </option>
+                <!-- <option value="20">  20*20 </option>
+                <option value="30">  30*30 </option>  
+                <option value="50">  50*50 </option>
+                <option value="100">  100*100 </option> -->
+              </select>
+        </div>
+
+        <div class="col">
+            <label>Seed:</label>
+            <select #seed>
+                <option value="low">Low </option>
+                <option value="medium"> Medium</option>
+                <option value="large"> Large </option>
+              </select>
+        </div>
+
+        <div class="col">
+            <label >Speed:</label>
+              <select #speed  (change)="speedGame(speed.value,size.value)">
+                <option value="stop">Stop</option>
+                <option value="very-slow">  Very slow </option>
+                <option value="slow">  Slow </option>
+                <option value="normal">  Normal </option>  
+                <option value="fast">  Fast </option>
+                <option value="very-fast">  Very fast </option>
+              </select>
+        </div>
+
+    </div>
+        <div class="button-container" (click)="startGame(size.value,seed.value,speed.value)">
+            <label>start</label>
+        </div>
+    
+</div>
+    <div class="table">
+        <table >
+            <tr  *ngFor="let row of mat" >
+                <td  *ngFor="let col of row" [ngClass]="col==1 ? 'container-live' : 'container-died' ">
+               
+                </td>
+            </tr>        
+        </table>
+    </div>
+</div>

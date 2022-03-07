@@ -1,0 +1,111 @@
+.body-container{
+    width: 50%;
+    position: relative;
+    left:25%;
+  
+}
+
+header{
+    background-color:  blueviolet;
+    height: 200px; 
+    text-align: center;
+    border-radius: 6px;
+}
+
+header h1{
+    position: relative;
+    top: 40%;
+    color: rgb(230, 222, 214);
+}
+
+.button-container{
+    height: 30px;
+    width: 95%;
+    background-color:  blueviolet;
+    text-align: center;
+    border-radius: 6px;
+    position: relative;
+    left: 2.5%;
+    top:40%;
+}
+
+.button-container label{
+    font-size: large;
+    position: relative;
+    top: 15%;
+    cursor: pointer;
+    color: rgb(230, 222, 214);
+}
+
+.table{
+    height: 690px;
+    width: 700px;
+    border-style: solid;
+    border-width: 0.5px;
+    position: relative;
+    left: 13%;
+    top: 40px;
+}
+
+/* .tr-container{
+    height:60px;
+    width: 600px;
+    border-style: solid;
+    border-width: 2px;
+} */
+
+.container-live{
+    height:60px;
+    width:62px;
+    border-style: solid;
+    border-width: 2px;
+    background-color:  rgb(141, 118, 161);
+    color: azure;
+}
+
+.container-died{
+    height:60px;
+    width:62px;
+    border-style: solid;
+    border-width: 2px;
+    background-color:rgb(230, 222, 214);
+}
+
+.border{
+    position: relative;
+    top:20px;
+    height: 120px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-radius: 6px;
+}
+
+.row{
+    position: relative;
+    top: 15%;
+    display:inline-flex;
+}
+
+.col{
+   width:350px;
+}
+
+.col-1{
+    margin-left: 60px;
+}
+
+select{
+    width: 30%;
+    height: 26px;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+option{
+    text-align: center;
+  
+}
+
+
+
+
