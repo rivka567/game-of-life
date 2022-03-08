@@ -12,9 +12,6 @@ export class HomeComponent implements OnInit {
 
 
   public mat:any;
-  public speed:string='';
-
-
 
   constructor() { }
 
@@ -242,7 +239,7 @@ export class HomeComponent implements OnInit {
       //  clearInterval(refSet);
     }
     else
-          clearInterval(refSet);
+        clearInterval(refSet);
    
   }
 
