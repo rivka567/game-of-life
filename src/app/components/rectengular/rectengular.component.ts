@@ -1,17 +1,13 @@
-import { analyzeFileForInjectables, ElementSchemaRegistry } from '@angular/compiler';
-import { isExpressionFactoryMetadata } from '@angular/compiler/src/render3/r3_factory';
-import { newArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-rectengular',
+  templateUrl: './rectengular.component.html',
+  styleUrls: ['./rectengular.component.css']
 })
-export class HomeComponent implements OnInit {
-
-
+export class RectengularComponent implements OnInit {
   public mat:any;
+  public refSet:any;
 
   constructor() { }
 
@@ -36,6 +32,7 @@ export class HomeComponent implements OnInit {
   initMat(size:number,seed:string)
   {
 
+   //this.mat=undefined;
     this.mat= new Array(size)
 
     for(let i=0; i<this.mat.length;i++)
@@ -47,8 +44,8 @@ export class HomeComponent implements OnInit {
     //initialize cells randomly
       while(num<chooseSeed)
       {
-        ranRow= Math.floor((Math.random() * 10));
-        ranCol=Math.floor((Math.random() * 10));
+        ranRow= Math.floor((Math.random() * size));
+        ranCol=Math.floor((Math.random() * size));
 
         let check=0
 
@@ -65,8 +62,8 @@ export class HomeComponent implements OnInit {
 
              //if the cell is live random again
             else{
-              ranRow= Math.floor((Math.random() * 10));
-              ranCol=Math.floor((Math.random() * 10)); 
+              ranRow= Math.floor((Math.random() * size));
+              ranCol=Math.floor((Math.random() * size)); 
 
             }               
         }
@@ -169,10 +166,9 @@ export class HomeComponent implements OnInit {
 
  
 
- public changeMat(size:number)
+ public changeMat(size:number,speed:string)
   {
-    console.log('hi');
-    
+
     let newMat =this.mat
 
     for(let row=0; row<this.mat.length; row++)
@@ -186,9 +182,8 @@ export class HomeComponent implements OnInit {
       // check if the the cell is live
         if(this.mat[Number(row)][col]==1)
         {       
-
           // if there are not 2 or 3 live cells around is died
-          if(count!=3 && count!=2)
+          if(count<2 || count>3)
           newMat[Number(row)][col]=0
         }
 
@@ -203,56 +198,53 @@ export class HomeComponent implements OnInit {
       }
 
      this.mat=newMat
+    
   }
 
   chooseSpeed(speed:string)
   {
+    
     if(speed=='very-slow')
-     return 2000;
+      return 2000; 
     
      else if(speed=='slow')
-     return 1000;
+       return 1000;
 
      else if(speed=='normal')
-     return 500;
+       return 500;
 
      else if(speed=='fast')
-     return 200;
+       return 200;
 
-     else return 0
-
+     else
+       return 
 
   }
 
   speedGame(value:any,size:string)
-    {
-
-    var refSet:any;
-
-    let chooseSpeed= this.chooseSpeed(value)
-
-    if(value!='stop')
-    {
-       refSet= setInterval(() => {
-       (this.changeMat(Number(size))) }, chooseSpeed);
-
-      //  clearInterval(refSet);
-    }
-    else
-        clearInterval(refSet);
-   
-  }
-
-
-  startGame(size:string,seed:string,speed:string)
   {
 
-    this.initMat(Number(size),seed)
-    this.speedGame(speed,size)
+    let chooseSpeed=this.chooseSpeed(value)
+        this.refSet= setInterval(() => {
 
+        if(value!='stop')
+          this.changeMat((Number(size)),value)
+        
+        }, chooseSpeed  );         
+    
   }
 
- 
+  stopInterval()
+  {
+    clearInterval(this.refSet);    
+  }
+
+  startGame(size:string,seed:string,speed:string)
+  {  
+    clearInterval(this.refSet);
+    this.initMat(Number(size),seed)
+    this.speedGame(speed,size)
+  }
 
 
 }

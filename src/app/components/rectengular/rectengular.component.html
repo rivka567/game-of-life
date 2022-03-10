@@ -1,0 +1,69 @@
+<header class="container">
+
+    <section class="container-header">
+        <h1>Game Of Life</h1>
+    </section>
+
+</header>
+
+
+  
+    <section class="container" >
+
+        <div class="container-row">
+            <div class="row">
+
+            <div class="col">
+                        <label >Size:</label>
+                        <select  class="custom-select" #size>
+                            <option value="6"> 6*6 </option>
+                            <option value="10" selected>  10*10 </option>
+                            <option value="20">  20*20 </option>
+                            <option value="30">  30*30 </option>  
+                            <option value="50">  50*50 </option>
+                            <option value="100">  100*100 </option>
+                        </select>
+
+            </div>
+               
+            <div class="col" >
+
+                        <label>Seed:</label>
+                        <select  class="custom-select" #seed>
+                            <option value="low">Low </option>
+                            <option value="medium"> Medium</option>
+                            <option value="large"> Large </option>
+                        </select>
+
+            </div>      
+
+            <div class="col">      
+            
+                    <label >Speed:</label>
+                        <select #speed  class="custom-select" >
+                            <option value="stop">Stop</option>
+                            <option value="very-slow">  Very slow </option>
+                            <option value="slow">  Slow </option>
+                            <option value="normal">  Normal </option>  
+                            <option value="fast">  Fast </option>
+                            <option value="very-fast">  Very fast </option>
+                        </select>
+            </div>   
+        </div>
+
+            <div class="container-button">
+                <button (click)="startGame(size.value,seed.value,speed.value)"> <label>start</label> </button>
+            </div>
+
+    </div> 
+           
+
+   </section>    
+        
+   <section class="container-table" >
+    <table >
+        <tr  *ngFor="let row of mat" >
+            <td  *ngFor="let col of row" [ngClass]="col==1 ? 'container-live' : 'container-died' "> </td>
+        </tr>        
+    </table></section>
+ 
